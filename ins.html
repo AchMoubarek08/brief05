@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Inscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sass.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">CarLoc.</label>
+      <ul>
+        <li><a href="LocationAccueil.html">Accueil</a></li>
+        <li><a href="reserv.html">Location</a></li>
+        <li><a class="active" href="ins.html">Inscription</a></li>
+      </ul>
+    </nav>
+    <div class="blank"></div>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="3.png" style="width:100%">
+        <div class="text">Location de voitures au Maroc</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="2.png" style="width:100%">
+        <div class="text">reservez et recevez votre voiture chez vous</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="1.png" style="width:100%">
+        <div class="text">des voitures pour tous les goùts</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+    </header>
+    <div class="blank"></div>
+    <aside>
+      <h1 class="NO">
+        Inscription
+        </h1>
+        <div class="blank"></div>
+     
+        
+    </aside>
+   
+        <div class="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+      
+          <label ><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email">
+      
+          <label ><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="pass">
+      
+          <label><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" id="pass1">
+          <hr>
+          
+      
+          <button class="registerbtn" onclick="validation()">Register</button>
+        </div>
+        
+        
+     
+		<footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+				<a href="#"><i class="fa fa-github"></i></a>
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a class="link-1" href="#">Home</a>
+
+					<a href="#">Blog</a>
+
+					<a href="#">Pricing</a>
+
+					<a href="#">About</a>
+
+					<a href="#">Faq</a>
+
+					<a href="#">Contact</a>
+				</p>
+
+				<p>CarLoc. &copy; 2020</p>
+			</div>
+
+        </footer>
+        <script>
+          function validation(){
+                var a = document.getElementById("email").value;
+                var b = document.getElementById("pass").value;
+                var c = document.getElementById("pass1").value;
+                if (!a.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+                    alert("invalid email");
+                    return false;
+                }
+                if(b.length === 0){
+                    alert("password required");
+                    return false;
+                }
+                if(b.length < 5){
+                    alert("password invalid");
+                    return false;
+                }
+                if(c.length === 0){
+                    alert("Re-password required");
+                    return false;
+                }
+                if(c.length < 5){
+                    alert("Re-password invalid");
+                    return false;
+                }
+                else{
+                    alert("everything is ok");
+                    return true;
+                }
+                clear();
+            }
+            function clear(){
+                var a = document.getElementById("email").value;
+                var b = document.getElementById("pass").value;
+                var c = document.getElementById("pass1").value;
+                a = '';
+                b = '';
+                c = '';
+            }
+        </script>
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+            </script>
+  </body>
+</html>
+
+
